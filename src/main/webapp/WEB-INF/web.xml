@@ -3,18 +3,10 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <context-param>
-    <param-name/>
-    <param-value/>
-  </context-param>
 
   <!-- 加载顺序：context-param  listener  filter  servlet -->
 
-  <filter>
-    <filter-name>AuthFilter</filter-name>
-    <filter-class></filter-class>
-  </filter>
-  
+
   <!-- 配置前端控制器 -->
   <servlet>
     <servlet-name>springmvc</servlet-name>
