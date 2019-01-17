@@ -2,20 +2,14 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>DataStructure</artifactId>
-        <groupId>com.datastructure</groupId>
-        <version>1.0-SNAPSHOT</version>
-        <relativePath>../DataStructure/pom.xml</relativePath>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.kaikeba</groupId>
-    <artifactId>springmvc-demo</artifactId>
+    <artifactId>ssm</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>springmvc-demo Maven Webapp</name>
+    <name>ssm</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -130,7 +124,7 @@
     </dependencies>
 
     <build>
-        <finalName>springmvc-demo</finalName>
+        <finalName>ssm</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>

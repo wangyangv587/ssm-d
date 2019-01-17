@@ -6,6 +6,16 @@
 
   <!-- 加载顺序：context-param  listener  filter  servlet -->
 
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+      classpath:spring-mybatis.xml
+    </param-value>
+  </context-param>
+
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 
   <!-- 配置前端控制器 -->
   <servlet>
@@ -20,7 +30,7 @@
     </init-param>
     <!-- 初始化时机，设置为2，表示Tomcat启动时，DispatcherServlet会随之初始化 -->
     <!-- 如果不指定时机，DispatcherServlet就会在第一次请求时初始化 -->
-    <load-on-startup>2</load-on-startup>
+    <!--<load-on-startup>2</load-on-startup>-->
   </servlet>
   <servlet-mapping>
     <servlet-name>springmvc</servlet-name>

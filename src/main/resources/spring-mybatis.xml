@@ -73,9 +73,10 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="mapperLocations">
             <list>
-                <value>classpath:com/kaikeba/mapper/*</value>
+                <value>classpath:com/kaikeba/mapper/*.xml</value>
             </list>
         </property>
+        <property name="typeAliasesPackage" value="com.kaikeba.pojo"/>
     </bean>
 
 </beans>
