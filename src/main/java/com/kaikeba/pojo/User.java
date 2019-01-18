@@ -1,11 +1,11 @@
 package com.kaikeba.pojo;
 
-public class Item {
+public class User {
     private Integer id;
 
     private String name;
 
-    private Integer num;
+    private String password;
 
     public Integer getId() {
         return id;
@@ -23,11 +23,11 @@ public class Item {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getNum() {
-        return num;
+    public String getPassword() {
+        return password;
     }
 
-    public void setNum(Integer num) {
-        this.num = num;
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
     }
 }

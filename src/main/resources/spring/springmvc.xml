@@ -13,12 +13,13 @@
 
     <!-- 配置映射器和适配器，同时还注入了很多其他的bean -->
     <mvc:annotation-driven/>
+
     <mvc:default-servlet-handler/>
 
     <!-- 显示的配置视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="suffix" value=".jsp"/>
-        <property name="prefix" value="pages"/>
+        <property name="prefix" value="../pages/"/>
     </bean>
 
 </beans>

@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,10 +24,17 @@ public class ItemController {
     @Resource
     private ItemService itemService;
 
-    @ResponseBody
     @RequestMapping(value = "/queryAll")
-    public List<Item> queryAll(){
-        List<Item> items = itemService.queryAll();
-        return items;
+    public ModelAndView queryAll(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("item");
+//        List<Item> items = itemService.queryAll();
+//        view.addObject("items",items);
+        List<String> items = new ArrayList<>();
+        items.add("er");
+        items.add("er");
+        items.add("er");
+        view.addObject("items",items);
+        return view;
     }
 }

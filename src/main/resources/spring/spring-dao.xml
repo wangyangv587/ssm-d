@@ -26,11 +26,10 @@
         <!-- 连接池最小空闲 -->
         <property name="minIdle" value="0" />
         <!-- 获取连接最大等待时间 -->
-        <property name="maxWait" value="60000" />
+        <property name="maxWait" value="6000" />
 
         <!-- <property name="poolPreparedStatements" value="true" /> <property name="maxPoolPreparedStatementPerConnectionSize" value="33" /> -->
 
-        <property name="validationQuery" value="${validationQuery}" />
         <property name="testOnBorrow" value="false" />
         <property name="testOnReturn" value="false" />
         <property name="testWhileIdle" value="true" />
@@ -52,31 +51,20 @@
         <property name="filters" value="mergeStat" />
     </bean>
 
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-    </bean>
-
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="query*" read-only="true"/>
-            <tx:method name="update*" propagation="REQUIRED"/>
-            <tx:method name="del*" propagation="REQUIRED"/>
-            <tx:method name="insert*" propagation="REQUIRED"/>
-        </tx:attributes>
-    </tx:advice>
-
-    <aop:config>
-        <aop:advisor advice-ref="txAdvice" pointcut="execution(* *..service.impl..*.*(..))"/>
-    </aop:config>
-
-    <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="mapperLocations">
-            <list>
-                <value>classpath:com/kaikeba/mapper/*.xml</value>
-            </list>
-        </property>
+        <!--<property name="mapperLocations">-->
+            <!--<list>-->
+                <!--<value>classpath:com/kaikeba/mapper/*.xml</value>-->
+            <!--</list>-->
+        <!--</property>-->
         <property name="typeAliasesPackage" value="com.kaikeba.pojo"/>
     </bean>
 
+    <!-- 批量代理对象的生成  -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 指定需要生成代理接口的包名 -->
+        <property name="basePackage" value="com.kaikeba.mapper"/>
+        <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
+    </bean>
 </beans>
