@@ -21,6 +21,12 @@ public class ItemServiceImpl implements ItemService {
     private ItemMapper itemMapper;
 
     @Override
+    public Item queryItemById(Integer id) {
+
+        return id == null ? null : itemMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
     public List<Item> queryAll() {
         ItemExample itemExample = new ItemExample();
         ItemExample.Criteria criteria = itemExample.createCriteria();

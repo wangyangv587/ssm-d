@@ -12,4 +12,6 @@ import java.util.List;
 public interface ItemService {
 
     List<Item> queryAll();
+
+    Item queryItemById(Integer id);
 }
