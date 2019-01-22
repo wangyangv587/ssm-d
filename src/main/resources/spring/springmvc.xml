@@ -12,14 +12,26 @@
     <context:component-scan base-package="com.kaikeba.controller"/>
 
     <!-- 配置映射器和适配器，同时还注入了很多其他的bean -->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven>
+        <!-- mvc响应转换处理 -->
+        <mvc:message-converters  register-defaults="true">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <!-- 乱码时设置响应的编码格式 -->
+                <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
+            </bean>
+        </mvc:message-converters>
+
+        <mvc:return-value-handlers>
+            <bean class="com.kaikeba.handler.ReturnValueHandler"/>
+        </mvc:return-value-handlers>
+    </mvc:annotation-driven>
 
     <mvc:default-servlet-handler/>
 
     <!-- 显示的配置视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="suffix" value=".jsp"/>
-        <property name="prefix" value="../pages/"/>
+        <property name="prefix" value="pages/"/>
     </bean>
 
 </beans>

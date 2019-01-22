@@ -1,6 +1,7 @@
 package com.kaikeba.service;
 
 import com.kaikeba.pojo.Item;
+import com.kaikeba.pojo.User;
 
 import java.util.List;
 
@@ -14,4 +15,8 @@ public interface ItemService {
     List<Item> queryAll();
 
     Item queryItemById(Integer id);
+
+    void insert(Item item);
+
+    void insertTest(Item item, User user);
 }

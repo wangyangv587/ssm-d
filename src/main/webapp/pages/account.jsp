@@ -1,16 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: y
-  Date: 2019/1/16
-  Time: 10:08
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>account</title>
 </head>
 <body>
-asdasdsa
+这是account页面
 </body>
 </html>

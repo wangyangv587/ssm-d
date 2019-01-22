@@ -156,6 +156,11 @@
             <artifactId>log4j-slf4j-impl</artifactId>
             <version>2.9.1</version>
         </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.4.2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -175,8 +180,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.0</version>
                     <configuration>
-                        <target>1.8</target>
-                        <source>1.8</source>
+                        <target>${maven.compiler.target}</target>
+                        <source>${maven.compiler.source}</source>
                         <encoding>utf-8</encoding>
                     </configuration>
                 </plugin>
@@ -201,29 +206,30 @@
                     <artifactId>tomcat-8-maven</artifactId>
                     <version>8.5.37</version>
                 </plugin>
+                <!-- xml文件也复制到classes目录下 -->
                 <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.6</version>
-                <executions>
-                    <execution>
-                        <id>copy-xmls</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${basedir}/target/classes</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>${basedir}/src/main/java</directory>
-                                    <includes>
-                                        <include>**/*.xml</include>
-                                    </includes>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.6</version>
+                    <executions>
+                        <execution>
+                            <id>copy-xmls</id>
+                            <phase>process-resources</phase>
+                            <goals>
+                                <goal>copy-resources</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${basedir}/target/classes</outputDirectory>
+                                <resources>
+                                    <resource>
+                                        <directory>${basedir}/src/main/java</directory>
+                                        <includes>
+                                            <include>**/*.xml</include>
+                                        </includes>
+                                    </resource>
+                                </resources>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>

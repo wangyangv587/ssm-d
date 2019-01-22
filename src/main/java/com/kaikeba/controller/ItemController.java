@@ -1,6 +1,11 @@
 package com.kaikeba.controller;
 
+import cn.hutool.json.JSONUtil;
+import com.alibaba.druid.support.json.JSONUtils;
+import com.kaikeba.annotation.ResponseJson;
+import com.kaikeba.common.Result;
 import com.kaikeba.pojo.Item;
+import com.kaikeba.pojo.User;
 import com.kaikeba.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,8 +48,21 @@ public class ItemController {
 
     @ResponseBody
     @RequestMapping("queryItemById")
-    public Item queryItemById(Integer id){
+    @ResponseJson
+    public String queryItemById(Integer id){
 
-        return itemService.queryItemById(id);
+//        Result result = new Result();
+//        result.setData(JSONUtil.toJsonStr(itemService.queryItemById(id)));
+        System.out.println("id = " + id);
+        System.out.println("进入controller");
+        return JSONUtil.toJsonStr(itemService.queryItemById(id));
     }
+
+    @ResponseBody
+    @RequestMapping("addItem")
+    public String addItem(Item item){
+        itemService.insert(item);
+        return "ok";
+    }
+
 }
