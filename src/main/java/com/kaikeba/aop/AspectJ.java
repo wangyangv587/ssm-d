@@ -26,6 +26,14 @@ public class AspectJ {
     @Pointcut("within(com.kaikeba.service.*)")
     public void pointCutWithin(){}
 
+//    @Pointcut("execution(* com.kaikeba.dao.*.*(..))")
+//    public void pointCutDao(){}
+//
+//    @Before("pointCutDao()")
+//    public void beforeDao(){
+//        System.out.println("before");
+//    }
+
     @Before("pointCutExecution()")
     public void before(){
         System.out.println("before");
