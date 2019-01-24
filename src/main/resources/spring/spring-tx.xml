@@ -30,4 +30,6 @@
         <aop:advisor advice-ref="txAdvice" pointcut="execution(* *..service.impl..*.*(..))"/>
     </aop:config>
 
+    <!-- 启用aspectJ 风格的spring aop -->
+    <aop:aspectj-autoproxy/>
 </beans>
