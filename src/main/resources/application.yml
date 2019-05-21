@@ -1,0 +1,13 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 80
+  servlet:
+    context-path: /
+
+# 设置静态资源文件的路径，使用','分隔多个路径
+spring:
+  resources:
+    static-locations: classpath:/templates/
